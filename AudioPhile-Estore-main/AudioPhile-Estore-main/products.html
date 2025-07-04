@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - AudioPhile Estore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-300 text-white mt-10">
+    <header class="bg-gray-900 py-4 px-6 flex justify-between items-center">
+    <a href="shop.html" class="text-orange-600 font-bold text-lg">← Back to Shop</a>
+    <h1 class="text-xl font-bold text-white-500">AudioPhile Estore</h1>
+    <a href="cart.html" class="relative hover:text-gray-300">
+      🛒 <span id="cart-count" class="text-xs bg-orange-500 text-white px-2 rounded-full absolute top-0 right-0">1</span>
+    </a>
+  </header>
+
+  <!-- Include AudiBot -->
+<!-- chatbot.html -->
+<div id="chatbot" class="fixed bottom-6 right-6 z-50">
+  <button type="submit" onclick="event.preventDefault(); document.getElementById('chatWindow').classList.remove('hidden');" class="bg-blue-600 rounded-full p-4 shadow-lg hover:bg-blue-700 text-white rounded-full p-4">
+    💬 Ask AudiBot
+  </button>
+</div>
+
+<!-- components/chatbot.html -->
+<div id="chatWindow" class="hidden w-80 h-96 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+    <div class="bg-blue-600 text-white p-3 rounded-t-lg font-bold">🎧 AudiBot – Your Shopping Assistant</div>
+    <div id="chatMessages" class="flex-1 p-3 overflow-y-auto text-sm space-y-2"></div>
+      <div class="text-gray-500 text-xs">💬 Suggested Prompts:</div>
+      <button type="submit" class="bg-gray-100 px-2 py-1 rounded hover:bg-blue-200" onclick="sendPrompt('What are the best headphones under $100?')">Best headphones under $100</button>
+      <button type="submit" class="bg-gray-100 px-2 py-1 rounded hover:bg-blue-200" onclick="sendPrompt('Do you have wireless earbuds?')">Do you have wireless earbuds?</button>
+      <button type="submit" class="bg-gray-100 px-2 py-1 rounded hover:bg-blue-200">What’s your return policy?</button>
+    <form id="chatForm" class="flex p-2 border-t">
+      <input type="text" id="userInput" class="flex-1 border border-gray-300 rounded-l px-2 py-1 text-sm focus:outline-none" placeholder="Ask AudiBot...">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded-r text-sm hover:bg-blue-700">Send</button>
+    </form>
+  </div>
+<script src="js/chatbot.js"></script>
+
+
+  <main class="p-8 grid md:grid-cols-2 gap-8 items-center">
+    <img src="assets\cart\image-xx99-mark-one-headphones.jpg" alt="XX99 Mark I" class="rounded-lg shadow-lg w-full">
+    <div>
+      <h2 class="text-3xl font-semibold mb-4">XX99 Mark I Headphones</h2>
+      <p class="text-gray-900 mb-4">Classic audio engineering meets premium materials. These over-ear headphones deliver studio-grade sound with unmatched clarity and depth.</p>
+      <p class="text-xl font-bold text-orange-600 mb-6">$1,299.00</p>
+      <label class="block mb-2">Quantity:</label>
+      <input type="number" value="1" min="1" class="w-20 mb-6 px-2 py-1 text-gray-600 border rounded">
+      <button class="mt-2 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 bg-gray-900 text-white mt-10">
+    &copy; 2025 AudioPhile Estore. All rights reserved.
+  </footer>
+
+  <script src="js/products.js"></script>
+</body>
+</html>

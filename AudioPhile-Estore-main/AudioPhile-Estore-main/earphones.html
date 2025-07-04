@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - AudioPhile Estore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-red-400 shadow py-4 px-6 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-orange-600">AudioPhile Estore</h1>
+    <nav class="space-x-4">
+      <a href="home.html" class="text-center mt-2 w-full bg-orange-300 text-black-800 py-2 rounded hover:bg-gray-50">Home</a>
+      <a href="headphones.html" class="text-center mt-2 w-full bg-orange-50 text-black-800 py-2 rounded hover:bg-gray-50">Headphones</a>
+      <a href="speakers.html" class="text-center mt-2 w-full bg-orange-300 text-black-800 py-2 rounded hover:bg-gray-50">Speakers</a>
+      <a href="cart.html" class="text-center mt-2 w-full bg-orange-300 text-black-800 py-2 rounded hover:bg-gray-50">
+        🛒 <span id="cart-count" class="text-xs bg-orange-500 text-white px-2 rounded-full absolute top-0 right-0">0</span>
+      </a>
+    </nav>
+  </header>
+  
+<!-- Include AudiBot -->
+<!-- chatbot.html -->
+<div id="chatbot" class="fixed bottom-6 right-6 z-50">
+  <button type="submit" onclick="event.preventDefault(); document.getElementById('chatWindow').classList.remove('hidden');" class="bg-blue-600 rounded-full p-4 shadow-lg hover:bg-blue-700 text-white rounded-full p-4">
+    💬 Ask AudiBot
+  </button>
+</div>
+
+<!-- components/chatbot.html -->
+<div id="chatWindow" class="hidden w-80 h-96 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+    <div class="bg-blue-600 text-white p-3 rounded-t-lg font-bold">🎧 AudiBot – Your Shopping Assistant</div>
+    <div id="chatMessages" class="flex-1 p-3 overflow-y-auto text-sm space-y-2"></div>
+      <div class="text-gray-500 text-xs">💬 Suggested Prompts:</div>
+      <button type="submit" class="bg-gray-100 px-2 py-1 rounded hover:bg-blue-200" onclick="sendPrompt('What are the best headphones under $100?')">Best headphones under $100</button>
+      <button type="submit" class="bg-gray-100 px-2 py-1 rounded hover:bg-blue-200" onclick="sendPrompt('Do you have wireless earbuds?')">Do you have wireless earbuds?</button>
+      <button type="submit" class="bg-gray-100 px-2 py-1 rounded hover:bg-blue-200">What’s your return policy?</button>
+    <form id="chatForm" class="flex p-2 border-t">
+      <input type="text" id="userInput" class="flex-1 border border-gray-300 rounded-l px-2 py-1 text-sm focus:outline-none" placeholder="Ask AudiBot...">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded-r text-sm hover:bg-blue-700">Send</button>
+    </form>
+  </div>
+<script src="js/chatbot.js"></script>
+
+  <main class="p-6">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Explore our Earphones</h2>
+    <div id="product-grid" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+        <img src="assets/cart/image-yx1-earphones.jpg" alt="Earphones" class="w-full h-48 object-cover rounded-lg mb-4">
+        <h3 class="text-xl font-bold mb-2">Earphones</h3>
+        <p class="text-sm text-gray-500 mb-4">Small size, big performance – perfect for mobility.</p>
+        <p class="text-orange-600 font-semibold mb-3">$599.00</p>
+        <a href="products.html" class="block text-center bg-red-500 hover:bg-gray-300 text-white py-2 px-4 rounded">View Product</a>
+        <button type="submit" class="mt-2 w-full bg-blue-600 text-white py-2 rounded hover:bg-gray-300">Add to Cart</button>
+      </div>
+        
+      <!-- Add more product cards as needed -->
+    </div>
+  </main>
+
+  <footer class="text-center py-6 bg-gray-900 text-white mt-10">
+    &copy; 2025 AudioPhile Estore. All rights reserved.
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script>
+    fetch('products.json')
+      .then(res => res.json())
+      .then(data => {
+        const category = new URLSearchParams(window.location.search).get("category");
+        const container = document.getElementById("product-grid");
+        const filtered = category ? data.filter(p => p.category === "earphones") : data;
+
+        container.innerHTML = filtered.map(product => `
+          <div class="bg-white rounded shadow p-4 hover:shadow-lg transition">
+            <img src="${product.image.mobile}" class="w-full h-48 object-cover rounded mb-4">
+            <h3 class="font-bold">${product.name}</h3>
+            <p class="text-red-300 font-semibold mb-2">$${product.price}</p>
+            <a href="product.html?slug=${product.slug}" class="block bg-red-300 text-white py-2 px-4 rounded text-center mt-2 hover:bg-orange-600">View Product</a>
+          </div>
+        `).join('');
+      });
+  </script>
+</body>
+</html>
