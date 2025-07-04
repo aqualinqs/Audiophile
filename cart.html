@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - AudioPhile Estore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<!-- Include AudiBot -->
+<!-- chatbot.html -->
+<div id="chatbot" class="fixed bottom-6 right-6 z-50">
+  <button id="toggleChatbot" class="bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition">
+    💬 Ask AudiBot
+  </button>
+
+  <div id="chatWindow" class="hidden w-80 h-96 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
+    <div class="bg-blue-600 text-white p-3 rounded-t-lg font-bold">🎧 AudiBot – Your Shopping Assistant</div>
+    <div id="chatMessages" class="flex-1 p-3 overflow-y-auto text-sm space-y-2"></div>
+    <form id="chatForm" class="flex p-2 border-t">
+      <input type="text" id="userInput" class="flex-1 border border-gray-300 rounded-l px-2 py-1 text-sm focus:outline-none" placeholder="Ask AudiBot...">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded-r text-sm hover:bg-blue-700">Send</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/chatbot.js"></script>
+
+<body class="bg-gray-100 text-gray-900">
+  <header class="bg-red-400 shadow py-4 px-6 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-orange-600">AudioPhile Estore</h1>
+    <nav class="space-x-4">
+      <a href="home.html" class="hover:bg-gray-50 text-orange-500">Home</a>
+      <a href="shop.html" class="hover:bg-gray-50 text-orange-500">Shop</a>
+      <a href="checkout.html" class="hover:bg-gray-50 text-orange-500">Checkout</a>
+      <a href="dashboard.html" class="hover:bg-gray-50 underline">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="p-8 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Your Cart</h2>
+    <div class="space-y-6">
+      <!-- Example cart item -->
+      <div class="bg-white p-4 shadow rounded flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img src="assets/cart/image-xx99-mark-one-headphones.jpg" alt="XX99 Mark I" class="w-20 h-20 object-cover rounded">
+          <div>
+            <h3 class="text-lg font-bold">XX99 Mark I</h3>
+            <p class="text-gray-600">$1,750.00</p>
+          </div>
+        </div>
+        <input type="number" value="1" min="1" class="w-16 text-center border rounded">
+        <button class="text-red-500 hover:text-red-700">Remove</button>
+      </div>
+      <!-- End example -->
+
+      <div class="bg-white p-6 shadow rounded mt-10">
+        <h3 class="text-xl font-semibold mb-4">Order Summary</h3>
+        <p>Subtotal: <span class="float-right">$1,750.00</span></p>
+        <p>VAT (20%): <span class="float-right">$350.80</span></p>
+        <p>Shipping: <span class="float-right">$50.00</span></p>
+        <hr class="my-4">
+        <p class="font-bold text-lg">Grand Total: <span class="float-right">$2,150.80</span></p>
+        <a href="checkout.html" class="block text-center mt-2 w-full bg-blue-300 text-black-800 py-2 rounded hover:bg-gray-500">Proceed to Checkout</a>
+      </div>
+    </div>"
+  </main>
+
+  <footer class="text-center py-6 bg-gray-900 text-white mt-10">
+    &copy; 2025 AudioPhile Estore. All rights reserved.
+  </footer>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>

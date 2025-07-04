@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - AudioPhile Estore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <main class="min-h-screen flex flex-col justify-center items-center px-4">
+    <section class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-semibold text-center text-orange-600 mb-6">AudioPhile Estore | Login Here</h2>
+    <form id="loginForm" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium">Email</label>
+        <input type="email" id="email" required class="w-full mt-1 px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-400">
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Password</label>
+        <input type="password" id="password" required class="w-full mt-1 px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-400">
+      </div>
+      <div class="flex justify-center">
+      <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-black py-2 rounded font-semibold">LOGIN</button>
+      <a href="home.html" class="w-full bg-orange-500 hover:bg-orange-600 text-black py-2 rounded font-semibold">PROCEED</a>
+      </div>
+
+      <p class="text-center text-sm mt-2">Don't have an account? <a href="register.html" class="text-orange-600 hover:underline">Register</a></p>
+    </form>
+    <div class="my-4 text-center text-sm text-gray-500">or login in with</div>
+        <div class="flex justify-center gap-3">
+          <button type="button" class="bg-red-200 hover:bg-gray-300 text-sm px-4 py-2 rounded">Google</button>
+          <button type="button" class="bg-blue-200 hover:bg-gray-300 text-sm px-4 py-2 rounded">Microsoft</button>
+          <button type="button" class="bg-green-200 hover:bg-gray-300 text-sm px-4 py-2 rounded">Apple</button>
+        </div>
+        <div class="text-center mt-4">
+          <a href="home.html" class="text-sm text-orange-600 hover:underline">OR Continue as Guest</a> ||
+        </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

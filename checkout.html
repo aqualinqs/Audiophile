@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - AudioPhile Estore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800">
+  <header class="bg-gray-800 text-white py-4 px-6 flex justify-between items-center">
+    <h1 class="text-xl font-bold">AudioPhile Estore</h1>
+    <nav class="space-x-4">
+      <a href="shop.html" class="hover:text-orange-400">Shop</a>
+      <a href="cart.html" class="hover:text-orange-400">Cart</a>
+    </nav>
+  </header>
+
+  <main class="p-8 max-w-2xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6">Checkout</h2>
+    <form class="space-y-4">
+      <input type="text" placeholder="Full Name" required class="w-full mt-1 px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-400">
+      <input type="email" placeholder="Email" required class="w-full mt-1 px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-400">
+      <input type="tel" placeholder="Phone Number" required class="w-full mt-1 px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-400">
+      <input type="text" placeholder="Shipping Address" required class="w-full mt-1 px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-400">
+
+      <button type="submit" class="inline-block text-center mt-2 w-full bg-red-400 text-black-800 py-2 rounded font-semibold hover:bg-gray-400">Confirm Order</button>
+      <div>
+        <button type="submit" onclick="event.preventDefault(); document.getElementById('order-confirm').classList.remove('hidden');" class="w-full bg-blue-400 text-black-800 py-2 rounded font-semibold  hover:bg-gray-400"">Place Order</button>
+      </div>
+    </form>
+  </main>
+ 
+  <!-- Order Confirmation Modal -->
+  <div id="order-confirm" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+      <h3 class="text-2xl font-semibold mb-4">Thank you for your order!</h3>
+      <p class="mb-4">We’ve emailed you a receipt and will begin processing your order right away.</p>
+      <a href="shop.html" class="bg-orange-500 hover:bg-orange-600 text-black px-5 py-2 rounded">Return to Shop</a>
+    </div>
+  </div>
+
+  <footer class="text-center py-6 bg-gray-800 text-white mt-10">
+    &copy; 2025 AudioPhile Estore. All rights reserved.
+  </footer>
+
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/login.js"></script>
+
+</body>
+</html>
